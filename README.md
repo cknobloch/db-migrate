@@ -1,4 +1,4 @@
-# Super Simple Migrations
+# DB Migrate
 
 This single "nameless" script is a super simple system for managing database migrations.
 Basically, it reads a directory of sql files and runs any of them that haven't already run!
