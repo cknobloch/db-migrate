@@ -1,0 +1,2 @@
+-- Beware! This script gets called on every migration
+create schema if not exists _revision_history; -- initialize the meta schema for managing the database itself (kinda cheesy to run every time but it works)

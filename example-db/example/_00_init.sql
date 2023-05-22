@@ -1,0 +1,1 @@
+create table _revision_history like _revision_history._revision_history;
