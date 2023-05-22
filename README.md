@@ -4,7 +4,7 @@ This is a dumb solution for managing database migrations. It is equal parts _scr
 
 # Overview
 
-There is a single script `migrate.sh` reads a directory of sql files and runs any of them that haven't already been run. It tracks what files have run in a meta table in the target database/schema, similar to other migration tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms, such as an ETL job.
+There is a single script `migrate.sh` that lists all revision files for a schema (ex. `ls *.sql`), and runs any of them that haven't already been run (through the database command-line client, ex. `mysql` for MySQL). It tracks what files have run in a meta table in the target database/schema, similar to other migration tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms, such as an ETL job.
 
 # Conventions (you must follow these!)
 * All revisions for a schema should be kept under a single directory
@@ -12,7 +12,7 @@ There is a single script `migrate.sh` reads a directory of sql files and runs an
 * Revisions are run in lexicographical order
 * Filename should lead with an incrementing identifier.
   It doesn't matter exactly what it is as long as it's sequential (per the previous bullet),
-  but incrementing digits like "00" -> "01" work well (this is a requirement of safeguards)
+  but incrementing digits like "00" -> "01" work well
 * There is no concept of downgrading only upgrading!
   If you have a risky migration and really want to prepare a downgrade ahead of time,
   do so in a code branch with a tentative ID.
