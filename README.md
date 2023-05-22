@@ -1,12 +1,12 @@
 # DB Migrate
 
 This single "nameless" script is a super simple system for managing database migrations.
-Basically, it reads a directory of sql files and runs any of them that haven't already run!
+Basically, it reads a directory of sql files and runs any of them that haven't already run.
 It tracks what files have run in a table in the target database/schema, similar to other tools.
 Since the logic is so minimal, it's easy to port this script under any language/platform,
 such as an ETL job.
 
-# Getting Started
+# Usage
 1. Put `migrate.sh` on your PATH or wherever you want to use it
 1. Copy an example directory
 1. Rename directories to match your database and schema
