@@ -22,7 +22,7 @@ There is a single script `migrate.sh` that lists all revision files for a schema
   * using a filename that doesn't get picked up by the pattern matching (ex. `_00_init.sql.revert` for `_00_init.sql`)
 * In target database
   * database-level migrations are handled through a meta schema `_revision_history` (as it is the schema tracking revisions to the db)
-  * schema-level migrations are tracked through a `_revision_history` table that at least has to include the revision filename, but can optionally include more
+  * schema-level migrations are tracked through a `_revision_history` table that at least has to include the `revision` (filename), but can optionally include more
 
 # Getting Started
 
