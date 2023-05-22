@@ -4,7 +4,7 @@ This is a dumb solution for managing database migrations. It is equal parts _scr
 
 # Overview
 
-There is a single script `migrate.sh` reads a directory of sql files and runs any of them that haven't already run. It tracks what files have run in a meta table in the target database/schema, similar to other migration tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms, such as an ETL job.
+There is a single script `migrate.sh` reads a directory of sql files and runs any of them that haven't already been run. It tracks what files have run in a meta table in the target database/schema, similar to other migration tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms, such as an ETL job.
 
 # Conventions (you must follow these!)
 * All revisions for a schema should be kept under a single directory
