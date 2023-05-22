@@ -15,6 +15,6 @@ TARGET_REVISION="" # no specific revision / allow the way to head
 # DB_CLIENT_SELECT_ARGS="--skip-column-names"
 # DB_CLIENT_INSERT_ARGS=""
 
-mysql $@ -e "create schema if not exists example_standalone_schema"
+mysql $@ < pre_migrate.sql
 
 $MIGRATE_SCRIPT "$TARGET_REVISION" mysql $@
