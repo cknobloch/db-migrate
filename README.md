@@ -1,20 +1,12 @@
 # DB Migrate
 
-This is a dumb solution for managing database migrations. It is equal parts _script_ and a set of file organization conventions.
+This is a dumb solution for managing database migrations. It is equal parts _script_ and a set of file-organizing conventions.
 
 # Overview
 
-There is a single script `migrate.sh` reads a directory of sql files and runs any of them that haven't already run. It tracks what files have run in a meta table in the target database/schema, similar to other tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms,
-such as an ETL job.
+There is a single script `migrate.sh` reads a directory of sql files and runs any of them that haven't already run. It tracks what files have run in a meta table in the target database/schema, similar to other migration tools. Since the logic in the script is so minimal, it's easy to port to other languages/platforms, such as an ETL job.
 
-# Usage
-1. Put `migrate.sh` on your PATH or wherever you want to use it
-1. Copy an example directory
-1. Rename directories to match your database and schema
-1. Add schema directories (by copy+paste from example)
-1. Add revisions (copy+paste most recent under that schema)
-
-# Hard Conventions (you must follow these!)
+# Conventions (you must follow these!)
 * All revisions for a schema should be kept under a single directory
 * Filename identifies the revision (hopefully it also describes what it does, in a few words)
 * Revisions are run in lexicographical order
@@ -29,7 +21,25 @@ such as an ETL job.
   * in another directory,
   * using a filename that doesn't get picked up by the pattern matching (ex. `_00_init.sql.revert` for `_00_init.sql`)
 
+# Getting Started
+
+To start a new database or standalone-schema migration, no tools are needed.
+
+1. Copy one of the top-level example directories
+1. Replace directories to match your database and schema (keeping the db meta one `_revision_history`)
+1. Update the local migration script to reflect your environment
+
+# Add a New Revision
+
+This could easily be put in to a script but why bother.
+
+1. Copy the last revision under the target schema
+1. Increment the identifier part of the filename, and replace the remainder of it with a short description of the change (don't worry if you make a mistake, `migrate.sh` takes notice!)
+1. Replace the contents of the file with your database code
+
 # Bash script `migrate.sh`
+
+To use `migrate.sh`, download it then put it on your PATH or wherever you want to use it, duh.
 
 ## Notes
 * Filename can only contain word characters (no spaces)
