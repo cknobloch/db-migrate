@@ -13,7 +13,7 @@ such as an ETL job.
 1. Add schema directories (by copy+paste from example)
 1. Add revisions (copy+paste most recent under that schema)
 
-# Conventions of the "System"
+# Hard Conventions (you must follow these!)
 * All revisions for a schema should be kept under a single directory
 * Filename identifies the revision (hopefully it also describes what it does, in a few words)
 * Revisions are run in lexicographical order
